@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { connect } from "react-redux";
 import { resetBook } from "../actions/shopBasket.actions";
+import { Redirect } from "react-router-dom";
 import axios from 'axios';
 
 const Summary = ({ shopBasket, resetBook }) => {
@@ -9,6 +10,7 @@ const Summary = ({ shopBasket, resetBook }) => {
     const [userCity, setUserCity] = useState("");
     const [userZipCode, setUserZipCode] = useState("");
     const [checkStatus, setCheckStatus] = useState("");
+    const [postStatus, setPostStatus] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -27,6 +29,7 @@ const Summary = ({ shopBasket, resetBook }) => {
             zip_code: JSON.stringify(userZipCode)
           }).then(response => {
           console.log(response);
+          setPostStatus(response.status)
         }).catch(error => setCheckStatus(error))
         setUserName("");
         setUserSurName("");
@@ -34,28 +37,75 @@ const Summary = ({ shopBasket, resetBook }) => {
         setUserZipCode("")
         orderedBooks = [];
         resetBook();
+/*         setTimeout(() => { //rozwiazanie 2
+            resetBook();
+        },10333)  */
     }
-console.log(checkStatus)
-console.log(shopBasket)
+console.log(checkStatus);
+console.log(shopBasket);
+
+const [timeLeft, setTimeLeft] = useState(10);
+
+
+  useEffect(() => {
+    if (!timeLeft) return; //gdy === true to zakoncz
+
+     const interval = setInterval(() => {
+        postStatus === 201 && setTimeLeft(timeLeft - 1)
+      }, 1000);
+
+    //wyczyszczenie interwalu
+    return () => clearInterval(interval);
+
+    //jeśli następuje update, którejś z wartośći, wtedy wywołaj
+  }, [timeLeft, shopBasket, postStatus]);
+
+  console.log(postStatus)
+  console.log(shopBasket)
+
+  const handleInputName = (e) => {
+      e.target.setCustomValidity("Wpisz swoje imię!");  
+  }
+  const handleInputSurName = (e) => {
+    e.target.setCustomValidity("Wpisz swoje nazwisko!");
+  }
+  const handleInputCity = (e) => {
+    e.target.setCustomValidity("Wpisz swoje miasto!");
+  }
+  const handleInputZipCode = (e) => {
+    e.target.setCustomValidity("Wpisz swój adres pocztowy (układ 00-000)!");
+  }
+  console.log(postStatus)
+  console.log(timeLeft)
     return ( 
         <div>
+            {/* {postStatus !== 201 &&  */}  {/* rozwiazanie 2 */}
+            {shopBasket.length > 0 && 
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name">Imię:
-                    <input type="text" id="name" name="name" value={userName} onChange={(e) => setUserName(e.target.value)} required/>
+                    <input type="text" id="name" name="name" value={userName} onChange={(e) => setUserName(e.target.value)} onInvalid={handleInputName} onInput={(e) => e.target.setCustomValidity("")} required/>
                 </label>
                 <label htmlFor="surname">Nazwisko:
-                    <input type="text" id="surname" name="surname" value={userSurName} onChange={(e) => setUserSurName(e.target.value)}required/>
+                    <input onInvalid={handleInputSurName} type="text" id="surname" name="surname" value={userSurName} onChange={(e) => setUserSurName(e.target.value)} onInput={(e) => e.target.setCustomValidity("")} required/>
                 </label>
                 <label htmlFor="city">Miejscowość:
-                    <input type="text" id="city" name="city" value={userCity} onChange={(e) => setUserCity(e.target.value)} required/>
+                    <input type="text" id="city" name="city" value={userCity} onChange={(e) => setUserCity(e.target.value)} 
+                    onInvalid={handleInputCity} onInput={(e) => e.target.setCustomValidity("")} required/>
                 </label>
                 <label htmlFor="zipCode">Kod pocztowy:
-                    <input id="zipCode" name="zipCode" type="text" inputMode="numeric" value={userZipCode} onChange={(e) => setUserZipCode(e.target.value)} pattern="\d{2}-\d{3}" required/>
+                    <input id="zipCode" name="zipCode" type="text" inputMode="numeric" value={userZipCode} onChange={(e) => setUserZipCode(e.target.value)} pattern="\d{2}-\d{3}" placeholder="Układ 00-000" onInvalid={handleInputZipCode} onInput={(e) => e.target.setCustomValidity("")} required/>
                 </label>
                 <button>Zamawiam i płacę</button>
-                {/* <button onClick={handleSubmit}>Zamawiam i płacę</button> */}
-            </form>
-        </div>       
+                </form>
+            }
+                {shopBasket.length === 0 &&  postStatus !== 201 && <p>Nie ma niczego w koszyku nie można podsumować i zapłacić!</p> }
+                {postStatus === 201 && <p>Zakupiono! Za {timeLeft} sekund zostaniesz przekierowany na strone główną</p> }
+                {/* {shopBasket.length === 0 && <Redirect to="/"/>} */}
+                {/* {timeLeft === 0 && resetBook()} */}
+                {/* {timeLeft === 0 && shopBasket.length === 0 && <Redirect to="/"/>} */}
+                {timeLeft}
+                {timeLeft === 0 && <Redirect exact to="/"/>}
+        </div>
      );
 }
 
