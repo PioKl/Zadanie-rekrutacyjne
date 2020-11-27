@@ -27,7 +27,7 @@ function App({ shopBasket }) {
 
   console.log(shopBasket)
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
         <NavLink to="/">
           <button>Strona główna</button>
@@ -41,8 +41,11 @@ function App({ shopBasket }) {
             <Book key={book.id} book={book}/>
           ))}
         </Route>
-        <Route exact path="/koszyk" component={ShopBasket}></Route>
-        <Route exact path="/podsumowanie" component={Summary}></Route>
+        <Route path="/koszyk" component={ShopBasket}></Route>
+        {/* {shopBasket.length > 0 && <Route path="/podsumowanie" component={Summary}></Route>} */} {/* rozwiazanie 2 */}
+        <Route path="/podsumowanie" component={Summary}></Route>
+        {/* <Route render={() => <main className="main main--error"><p>Wrong page</p></main>}/> */}
+        <Route><p>Wrong page</p></Route>
       </Switch>
       </div>
     </Router>
