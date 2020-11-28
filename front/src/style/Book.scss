@@ -1,0 +1,83 @@
+.book-card {
+    padding: 2rem;
+    //border: 3px solid orange;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem .3rem rgba(44, 58, 58, .2);
+    background-color: #fff;
+
+    &__img {
+        width: 100%;
+        height: 30rem;
+        box-shadow: 0 0 0rem .1rem rgba(44, 58, 58, .2);
+    }
+
+    &__title {
+        padding: 1rem 0;
+        //text-align: center;
+    }
+
+    &__author {
+        //text-align: center;
+        font-size: 1rem;
+        padding: .5rem 0;
+    }
+
+    &__price {
+        padding: .5rem 0;
+        font-size: 1.6rem;
+    }
+
+    &__pages {
+        padding: .5rem 0 1rem 0;
+        font-size: 1.3rem;
+    }
+
+    &__order {
+        padding: 1rem;
+        background-color: orange;
+        display: flex;
+        justify-content: space-between;
+        //height: 4rem;
+    }
+
+    &__quantityInput {
+        width: 30%;
+    }
+
+    &__addToBasketButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background-color: rgb(44, 202, 44);
+        border: none;
+        //border-left: 1px solid white;
+        color: white;
+        margin: -1rem;
+        //height: 100%;
+
+        &:hover {
+            background-color: rgb(43, 175, 43);
+        }
+
+        &:active {
+            box-shadow: inset 0 0 1rem rgb(8, 87, 8);
+            background-color: rgb(44, 151, 44);
+        }
+
+        &::after {
+            content: '';
+            background-image: url('../svg/cart.svg');
+            background-size: 2.5rem 2.5rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            background-repeat: no-repeat;
+            margin: 0 1rem;
+            fill: white;
+        }
+    }
+
+    &__addToBasketButtonTitle {
+        margin-left: 1rem;
+    }
+}
