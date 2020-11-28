@@ -29,24 +29,32 @@ function App({ shopBasket }) {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
-        <NavLink to="/">
-          <button>Strona główna</button>
-        </NavLink>
-      <Switch>
-        <Route exact path="/">
-          <div>
-            <NavLink to="/koszyk"><button>Koszyk {shopBasket.length > 0 && shopBasket.length}</button></NavLink>
-          </div>
-          {books.map(book => (
-            <Book key={book.id} book={book}/>
-          ))}
-        </Route>
-        <Route path="/koszyk" component={ShopBasket}></Route>
-        {/* {shopBasket.length > 0 && <Route path="/podsumowanie" component={Summary}></Route>} */} {/* rozwiazanie 2 */}
-        <Route path="/podsumowanie" component={Summary}></Route>
-        {/* <Route render={() => <main className="main main--error"><p>Wrong page</p></main>}/> */}
-        <Route><p>Wrong page</p></Route>
-      </Switch>
+        <header className="header">
+          <NavLink to="/">
+              <button className="button header__mainSiteButton">Księgarnia GWO</button>
+          </NavLink>
+          <NavLink to="/koszyk">
+              <button title="Twój koszyk" className="button header__shopBasketButton">
+                <span className="header__shopBasketCounter">{shopBasket.length >= 0 && shopBasket.length}</span> 
+              </button>
+          </NavLink>
+        </header>
+        <main className="main">
+        <Switch>
+          <Route exact path="/">
+            <div className="books-container">
+                {books.map(book => (
+                  <Book key={book.id} book={book}/>
+                ))}
+            </div>
+          </Route>
+          <Route path="/koszyk" component={ShopBasket}></Route>
+          {/* {shopBasket.length > 0 && <Route path="/podsumowanie" component={Summary}></Route>} */} {/* rozwiazanie 2 */}
+          <Route path="/podsumowanie" component={Summary}></Route>
+          {/* <Route render={() => <main className="main main--error"><p>Wrong page</p></main>}/> */}
+          <Route><p>Wrong page</p></Route>
+        </Switch>
+        </main>
       </div>
     </Router>
   );
