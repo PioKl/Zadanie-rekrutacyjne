@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import { connect } from "react-redux";
-
+import '../style/Book.scss';
 import { addBook } from "../actions/shopBasket.actions";
+import { ReactComponent as Cart } from '../svg/cart.svg';
 
 const Book = ({ book, addBook }) => {
    const {id, title, author, currency, price, pages, cover_url} = book;
@@ -13,19 +14,23 @@ const Book = ({ book, addBook }) => {
         setQuantity(1);
     }
     return ( 
-        <div>
-            <li>
-                <input value={quantity} onChange={(e) => setQuantity(e.target.value)} type="number" name="quantity" min="1" max="10"></input>
-                <span>{id} </span>
-                <span>{title} </span>
-                <span>{author} </span>
-                <span>{currency} </span>
-                <span>{price} </span>
-                <span>{pages} </span>
-                <img src={cover_url} alt=""/>
+        <div className="book-card">
+            <img title={`Okładka: ${title}`}className="book-card__img" src={cover_url} alt=""/>
+            <h2 title={`Tytuł: ${title}`}className="book-card__title">{title} </h2>
+            <h3 title={`Autor: ${author}`} className="book-card__author">{author.charAt(0).toUpperCase() + author.slice(1)} </h3>
+            {/* <p className="book-card__price">Cena: {price} {currency}</p> */}
+            <p title={`Liczba stron: ${pages}`}className="book-card__pages">Liczba stron: {pages}</p>
+            <div className="book-card__order">
+                <input title="Ilość książek do koszyka" className="book-card__quantityInput" value={quantity} onChange={(e) => setQuantity(e.target.value)} type="number" name="quantity" min="1" max="10"></input>
+                {/* <span>{id} </span> */}
+                {/* <span>{currency} </span> */}
+                {/* <span>{pages} </span> */}
                 {/* <button onClick={() => handleAdd(book)}>Dodaj do koszyka</button> */}
-                <button onClick={handleAdd}>Dodaj do kosza</button>
-            </li>
+                <button title="Dodaj do koszyka" className="book-card__addToBasketButton" onClick={handleAdd}>
+                    <span className="book-card__addToBasketButtonTitle">Dodaj do koszyka</span>
+                </button>  
+            </div>
+            
         </div>
      );
 }
