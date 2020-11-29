@@ -23,7 +23,44 @@ const ShopBasket = ({ shopBasket, deleteBook }) => {
           ))} */}
           {shopBasket.length > 0 ?
             <>
-              {shopBasket.map((item, i) => (
+{/*               <table>
+                <tbody>
+                  <tr className="basket-table__row basket-table__row--header">
+                    <th className="basket-table__item-header basket-table__item-header--cover spr1">Okładka</th>
+                    <th className="basket-table__item-header basket-table__item-header--title spr2">Tytuł</th>
+                    <th className="basket-table__item-header basket-table__item-header--price">Cena</th>
+                    <th className="basket-table__item-header basket-table__item-header--delete">Usuń</th>
+                  </tr>
+                </tbody>
+              </table> */}
+              <table className="table basket-table">
+                <thead>
+                  <tr className="basket-table__row basket-table__row--header">
+                    <th className="basket-table__item-header basket-table__item-header--cover spr1">Okładka</th>
+                    <th className="basket-table__item-header basket-table__item-header--title spr2">Tytuł</th>
+                    <th className="basket-table__item-header basket-table__item-header--price">Cena</th>
+                    <th className="basket-table__item-header basket-table__item-header--quantity">Ilość</th>
+                    <th className="basket-table__item-header basket-table__item-header--delete">Usuń</th>
+                  </tr>
+                </thead>
+                <tbody className="cialo">
+                  {shopBasket.map((item, i) => (
+                    <tr className="basket-table__row basket-table__row--body" key={i}>
+                      <td className="basket-table__data basket-table__data--cover sprImg">
+                        <img className="basket-table__img sprImg2" src={item.cover} alt=""/>
+                      </td>
+                      <td className="basket-table__data basket-table__data--title titlee">{item.title}</td>
+                      <td className="basket-table__data basket-table__data--price titlee">{item.price * item.quantity} zł</td>
+                      <td className="basket-table__data basket-table__data--quantity titlee">{item.quantity}</td>
+                      <td className="basket-table__data basket-table__data--delete titlee">
+                        <button title="Usuń z koszyka"className="button basket-table__deleteButton" onClick={() => handleDelete(i)}>
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+{/*               {shopBasket.map((item, i) => (
                 <div className="shopBasket__book" key={i}>
                   <div className="shopBasket__cover-container">
                     <h1 className="shopBasket__section-name">Okładka</h1>
@@ -43,17 +80,19 @@ const ShopBasket = ({ shopBasket, deleteBook }) => {
                   </div>
                   <div className="shopBasket__delete-container">
                     <button title="Usuń z koszyka"className="button shopBasket__deleteButton" onClick={() => handleDelete(i)}></button>          
-                  </div>      
-{/*                   <div className="shopBasket__orderInformation">
+                  </div>
+
+                  //Od tego momentu      
+                 <div className="shopBasket__orderInformation">
                     <h1>Tytuł: {item.title} </h1>
                     <h1>Ilość: {item.quantity} </h1>
                     <h1>Cena: {item.price} zł </h1>
                     <button onClick={() => handleDelete(i)}>Usuń</button>
-                  </div> */}
-                  
+                  </div>
+                  //Do tego zakomentowane bylo
                 </div>
-              ))}
-              <NavLink to="/podsumowanie"><button>Dalej</button></NavLink>
+              ))} */}
+              <NavLink className="shopBasket__nextButton-container" to="/podsumowanie"><button className="button shopBasket__nextButton">Dalej</button></NavLink>
             </>
             :
             <h1 className="shopBasket__emptyBasket">Koszyk jest pusty</h1>
