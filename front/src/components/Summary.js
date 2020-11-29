@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { resetBook } from "../actions/shopBasket.actions";
 import { Redirect } from "react-router-dom";
 import axios from 'axios';
+import '../style/Summary.scss';
 
 const Summary = ({ shopBasket, resetBook }) => {
     const [userName, setUserName] = useState("");
@@ -78,32 +79,32 @@ const [timeLeft, setTimeLeft] = useState(10);
   console.log(postStatus)
   console.log(timeLeft)
     return ( 
-        <div>
+        <div className="summary">
             {/* {postStatus !== 201 &&  */}  {/* rozwiazanie 2 */}
             {shopBasket.length > 0 && 
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="name">Imię:
-                    <input type="text" id="name" name="name" value={userName} onChange={(e) => setUserName(e.target.value)} onInvalid={handleInputName} onInput={(e) => e.target.setCustomValidity("")} required/>
+            <form className="summary__form" onSubmit={handleSubmit}>
+                <label className="summary__item" htmlFor="name">Imię:
+                    <input className="summary__input" type="text" id="name" name="name" value={userName} onChange={(e) => setUserName(e.target.value)} onInvalid={handleInputName} onInput={(e) => e.target.setCustomValidity("")} required/>
                 </label>
-                <label htmlFor="surname">Nazwisko:
-                    <input onInvalid={handleInputSurName} type="text" id="surname" name="surname" value={userSurName} onChange={(e) => setUserSurName(e.target.value)} onInput={(e) => e.target.setCustomValidity("")} required/>
+                <label className="summary__item" htmlFor="surname">Nazwisko:
+                    <input className="summary__input" onInvalid={handleInputSurName} type="text" id="surname" name="surname" value={userSurName} onChange={(e) => setUserSurName(e.target.value)} onInput={(e) => e.target.setCustomValidity("")} required/>
                 </label>
-                <label htmlFor="city">Miejscowość:
-                    <input type="text" id="city" name="city" value={userCity} onChange={(e) => setUserCity(e.target.value)} 
+                <label className="summary__item" htmlFor="city">Miejscowość:
+                    <input className="summary__input" type="text" id="city" name="city" value={userCity} onChange={(e) => setUserCity(e.target.value)} 
                     onInvalid={handleInputCity} onInput={(e) => e.target.setCustomValidity("")} required/>
                 </label>
-                <label htmlFor="zipCode">Kod pocztowy:
-                    <input id="zipCode" name="zipCode" type="text" inputMode="numeric" value={userZipCode} onChange={(e) => setUserZipCode(e.target.value)} pattern="\d{2}-\d{3}" placeholder="Układ 00-000" onInvalid={handleInputZipCode} onInput={(e) => e.target.setCustomValidity("")} required/>
+                <label className="summary__item" htmlFor="zipCode">Kod pocztowy:
+                    <input className="summary__input" id="zipCode" name="zipCode" type="text" inputMode="numeric" value={userZipCode} onChange={(e) => setUserZipCode(e.target.value)} pattern="\d{2}-\d{3}" placeholder="Układ 00-000" onInvalid={handleInputZipCode} onInput={(e) => e.target.setCustomValidity("")} required/>
                 </label>
-                <button>Zamawiam i płacę</button>
-                </form>
+                <button className="button summary__order">Zamawiam i płacę</button>
+            </form>
             }
-                {shopBasket.length === 0 &&  postStatus !== 201 && <p>Nie ma niczego w koszyku nie można podsumować i zapłacić!</p> }
-                {postStatus === 201 && <p>Zakupiono! Za {timeLeft} sekund zostaniesz przekierowany na strone główną</p> }
+                {shopBasket.length === 0 &&  postStatus !== 201 && <p className="summary__emptySummary">Nie ma niczego w koszyku, nie można podsumować i zapłacić!</p> }
+                {postStatus === 201 && <p className="summary__completed">Zakupiono! Za {timeLeft} sekund zostaniesz przekierowany na strone główną</p> }
                 {/* {shopBasket.length === 0 && <Redirect to="/"/>} */}
                 {/* {timeLeft === 0 && resetBook()} */}
                 {/* {timeLeft === 0 && shopBasket.length === 0 && <Redirect to="/"/>} */}
-                {timeLeft}
+                {/* {timeLeft} */}
                 {timeLeft === 0 && <Redirect exact to="/"/>}
         </div>
      );
