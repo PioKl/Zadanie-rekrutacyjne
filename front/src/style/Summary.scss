@@ -1,0 +1,45 @@
+.summary {
+    display: flex;
+    justify-content: center;
+    //align-items: center;
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        width: 40rem;
+    }
+
+    &__item {
+        padding: 1rem 0;
+        font-size: 1.6rem;
+    }
+
+    &__input {
+        font-size: inherit;
+        width: 100%;
+        padding: 1.3rem;
+        margin: 1rem 0;
+        border-radius: .5rem;
+        border: 1px solid black;
+    }
+
+    &__order {
+        margin: 1rem 0;
+        padding: 1.3rem;
+        color: white;
+        font-size: inherit;
+        font-size: 1.6rem;
+        background-color: green;
+        border-radius: .5rem;
+    }
+
+    &__emptySummary,
+    &__completed {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 5rem;
+        text-align: center;
+    }
+}
