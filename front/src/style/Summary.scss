@@ -6,7 +6,9 @@
     &__form {
         display: flex;
         flex-direction: column;
-        width: 40rem;
+        width: 60rem;
+        box-shadow: 0 0 1rem .1rem rgba(44, 58, 58, .2);
+        padding: 2rem;
     }
 
     &__item {
@@ -21,6 +23,7 @@
         margin: 1rem 0;
         border-radius: .5rem;
         border: 1px solid black;
+        font-family: inherit;
     }
 
     &__order {
@@ -29,8 +32,10 @@
         color: white;
         font-size: inherit;
         font-size: 1.6rem;
-        background-color: green;
+        //background-color: orange;
+        background-color: rgb(255, 102, 0);
         border-radius: .5rem;
+        font-family: inherit;
     }
 
     &__emptySummary,
@@ -41,5 +46,13 @@
         transform: translate(-50%, -50%);
         font-size: 5rem;
         text-align: center;
+
+        padding: 5rem;
+        color: white;
+        border-radius: 2rem;
+        text-align: center;
+        background-color: rgb(255, 102, 0);
+        font-size: calc(30px + (67 - 30) * ((100vw - 300px) / (2560 - 300)));
+        padding: calc(30px + (66.7 - 30) * ((100vw - 300px) / (2560 - 300)));
     }
 }
