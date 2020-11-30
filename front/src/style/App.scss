@@ -15,12 +15,17 @@
     height: 6rem;
     padding: 1rem 5rem;
 
+    padding: 1rem calc(14px + (80 - 14) * ((100vw - 300px) / (2560 - 300)));
+
     &__mainSiteButton {
         font-size: 2rem;
         font-weight: 700;
         background: -webkit-linear-gradient(#f8b91e, #d60024);
         background-clip: text;
         -webkit-text-fill-color: transparent;
+        font-family: inherit;
+
+        font-size: calc(14px + (32 - 14) * ((100vw - 300px) / (2560 - 300)));
 
         //#f8b91e
         //#e77d27
@@ -30,6 +35,7 @@
     &__shopBasketButton {
         display: flex;
         align-items: center;
+        font-family: inherit;
 
         &:after {
             content: '';
@@ -55,7 +61,8 @@
         display: grid;
         place-items: center;
         //border: 2px solid black;
-        background-color: orange;
+        //background-color: orange;
+        background-color: rgb(255, 102, 0);
         color: white;
         width: 3.3rem;
         height: 3.3rem;
@@ -66,13 +73,19 @@
 
 .main {
     padding: 5rem;
+    padding: calc(20px + (74.9 - 20) * ((100vw - 300px) / (2560 - 300)));
 }
 
 .books-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    //grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 31.7rem));
     gap: 5rem;
     justify-content: center;
+
+    /*     @media (min-width: 1000px) {
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    } */
 
     /* grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); */
 
