@@ -43,7 +43,7 @@ const ShopBasket = ({ shopBasket, deleteBook }) => {
                     <th className="basket-table__item-header basket-table__item-header--delete">Usuń</th>
                   </tr>
                 </thead>
-                <tbody className="cialo">
+                <tbody className="basket-table__body">
                   {shopBasket.map((item, i) => (
                     <tr className="basket-table__row basket-table__row--body" key={i}>
                       <td className="basket-table__data basket-table__data--cover sprImg">
@@ -53,7 +53,7 @@ const ShopBasket = ({ shopBasket, deleteBook }) => {
                       <td className="basket-table__data basket-table__data--price titlee">{item.price * item.quantity} zł</td>
                       <td className="basket-table__data basket-table__data--quantity titlee">{item.quantity}</td>
                       <td className="basket-table__data basket-table__data--delete titlee">
-                        <button title="Usuń z koszyka"className="button basket-table__deleteButton" onClick={() => handleDelete(i)}>
+                        <button title="Usuń z koszyka"className="basket-table__deleteButton" onClick={() => handleDelete(i)}>
                         </button>
                       </td>
                     </tr>
@@ -92,7 +92,9 @@ const ShopBasket = ({ shopBasket, deleteBook }) => {
                   //Do tego zakomentowane bylo
                 </div>
               ))} */}
-              <NavLink className="shopBasket__nextButton-container" to="/podsumowanie"><button className="button shopBasket__nextButton">Dalej</button></NavLink>
+              <NavLink className="shopBasket__nextButton-container" to="/podsumowanie">
+                <button className="shopBasket__nextButton">Dalej</button>
+              </NavLink>
             </>
             :
             <h1 className="shopBasket__emptyBasket">Koszyk jest pusty</h1>
