@@ -31,10 +31,10 @@ function App({ shopBasket }) {
       <div className="App">
         <header className="header">
           <NavLink to="/">
-              <button className="button header__mainSiteButton">Księgarnia GWO</button>
+              <button className="header__mainSiteButton">Księgarnia GWO</button>
           </NavLink>
           <NavLink to="/koszyk">
-              <button title="Twój koszyk" className="button header__shopBasketButton">
+              <button title="Twój koszyk" className="header__shopBasketButton">
                 <span className="header__shopBasketCounter">{shopBasket.length >= 0 && shopBasket.length}</span> 
               </button>
           </NavLink>
@@ -52,7 +52,11 @@ function App({ shopBasket }) {
           {/* {shopBasket.length > 0 && <Route path="/podsumowanie" component={Summary}></Route>} */} {/* rozwiazanie 2 */}
           <Route path="/podsumowanie" component={Summary}></Route>
           {/* <Route render={() => <main className="main main--error"><p>Wrong page</p></main>}/> */}
-          <Route><p>Wrong page</p></Route>
+          <Route>
+            <div className="wrong-page">
+              <h1 className="wrong-page__title">Wrong page</h1>
+            </div> 
+          </Route>
         </Switch>
         </main>
       </div>
