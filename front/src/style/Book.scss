@@ -1,3 +1,5 @@
+@import './App.scss';
+
 input[type="number"] {
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
@@ -13,13 +15,13 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 2rem;
     //border: 3px solid orange;
     border-radius: 1rem;
-    box-shadow: 0 0 1rem .3rem rgba(44, 58, 58, .2);
+    box-shadow: $shadow;
     background-color: #fff;
 
     &__img {
         width: 100%;
         height: 30rem;
-        box-shadow: 0 0 0rem .1rem rgba(44, 58, 58, .2);
+        box-shadow: $shadow;
     }
 
     &__title {
@@ -46,7 +48,7 @@ input[type=number]::-webkit-outer-spin-button {
     &__order {
         display: flex;
         width: 100%;
-        box-shadow: 0 0 1rem .1rem rgba(44, 58, 58, .2);
+        box-shadow: $shadow;
     }
 
     &__quantity-container {
@@ -59,8 +61,6 @@ input[type=number]::-webkit-outer-spin-button {
         padding: 1rem;
         text-align: center;
         font-weight: 900;
-        //background: white;
-        //border: 1px solid gray;
         border: none;
         background-color: rgb(218, 211, 211);
         cursor: pointer;
@@ -117,21 +117,24 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: calc(12px + (14 - 12) * ((100vw - 300px) / (2560 - 300)));
         //font-size: 12px;
 
-        &:hover {
+        @include buttonPressed();
+
+        /*         &:hover {
             background-color: rgb(43, 175, 43);
         }
 
         &:active {
             box-shadow: inset 0 0 1rem rgb(8, 87, 8);
             background-color: rgb(44, 151, 44);
-        }
+        } */
 
         &::after {
             content: '';
             background-image: url('../svg/cartAdd.svg');
-            background-size: 2.5rem 2.5rem;
+            /*             background-size: 2.5rem 2.5rem;
             width: 2.5rem;
-            height: 2.5rem;
+            height: 2.5rem; */
+            @include iconSize(2.5rem);
             background-repeat: no-repeat;
             margin-left: 1rem;
 
