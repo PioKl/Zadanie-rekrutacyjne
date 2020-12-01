@@ -1,3 +1,4 @@
+@import './App.scss';
 /* .table {
     width: 100%;
 } */
@@ -14,6 +15,23 @@
     margin-top: -3rem;
     width: 70%;
 
+    /*     @media only screen and (max-width: 768px) {
+        margin-top: 0;
+        width: 100%;
+    } */
+
+    @media only screen and (max-width: 767px) {
+        margin-top: 0;
+        width: 100%;
+        max-width: 32rem;
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        margin-top: 0;
+        width: 100%;
+    }
+
+
 
     &__nextButton-container {
         //background-color: orange;
@@ -24,9 +42,11 @@
         justify-content: center;
         align-items: center;
         margin-left: 50%;
+        @include buttonPressed();
     }
 
     &__nextButton {
+        @include buttonReset();
         color: white;
         font-size: 3rem;
         font-family: inherit;
@@ -61,13 +81,27 @@
     //width: 100%;
     width: 100%;
 
+
     &__row {
+
+        @media only screen and (max-width: 767px) {
+            border: 1px solid #ccc;
+            margin-bottom: 5rem;
+            padding: 2rem;
+            border-radius: 1rem;
+        }
 
         &--header {
             font-size: 1.6rem;
             background-color: #fff;
-            box-shadow: 0 0 1rem .1rem rgba(44, 58, 58, .2);
+            box-shadow: $shadow;
             //font-size: .5rem;
+
+            @media only screen and (max-width: 767px) {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
         }
 
         &--body {
@@ -77,8 +111,7 @@
             border-right: 0;
             font-size: 1.6rem;
             background-color: #fff;
-            box-shadow: 0 0 1rem .1rem rgba(44, 58, 58, .2);
-
+            box-shadow: $shadow;
 
             //font-size: .5rem;
         }
@@ -108,15 +141,68 @@
 
     &__data {
         padding: .5rem;
+
+        &--title,
+        &--price,
+        &--quantity,
+        &--delete {
+            text-align: center;
+        }
+
         //border-top: 2px solid gray;
+        @media only screen and (max-width: 767px) {
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            //padding-left: 50%;
+            //padding-left: .5rem;
+
+            &:before {
+                margin-right: 10%;
+            }
+
+            &:nth-of-type(3):before {
+                content: "Cena:";
+                position: absolute;
+                left: 2%;
+            }
+
+            &:nth-of-type(4):before {
+                content: "Ilość:";
+                position: absolute;
+                left: 2%;
+            }
+        }
 
         &--title {
             padding: 1rem 3rem;
+
+            @media only screen and (max-width: 767px) {
+                padding-left: 2%;
+            }
         }
 
         &--cover {
             width: 15rem;
             height: 20rem;
+
+            @media only screen and (max-width: 767px) {
+                margin: 0 auto;
+                width: 100%;
+                height: 30rem;
+                padding: 0;
+            }
+        }
+
+
+        @media only screen and (max-width: 767px) {
+
+            &--title,
+            &--price,
+            &--quantity,
+            &--delete {
+                text-align: center;
+            }
         }
 
         //border: 1px solid red;
@@ -135,10 +221,9 @@
     }
 
     &__deleteButton {
+        @include buttonReset();
         background-image: url('../svg/cartDelete.svg');
-        background-size: 4rem 4rem;
-        width: 4rem;
-        height: 4rem;
+        @include iconSizeWithActive(4rem);
         background-repeat: no-repeat;
     }
 }
@@ -153,7 +238,7 @@
     width: 25%;
 } */
 
-.titlee {
+/* .titlee {
     text-align: center;
 }
 
@@ -164,7 +249,7 @@
     //width: 5rem;
     //height: 10rem;
 }
-
+ */
 /* .sprImg2 {
     display: block;
     width: 100%;
@@ -284,5 +369,190 @@ table {
         flex-direction: column;
         justify-content: space-between;
         //width: 60%;
+    }
+} */
+
+@media only screen and (max-width: 767px) {
+
+    //Force table to not be like tables anymore
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+}
+
+/* @media only screen and (max-width: 767px) {
+
+    //Force table to not be like tables anymore
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    .shopBasket {
+        margin-top: 0;
+        width: 100%;
+    }
+
+    .basket-table {
+        &__row {
+            border: 1px solid #ccc;
+            margin-bottom: 5rem;
+
+            //Hide table headers (but not display: none;, for accessibility)
+            &--header {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+        }
+
+        &__data {
+            //Behave  like a "row"
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding: .5rem;
+            //padding-left: 50%;
+            //padding-left: .5rem;
+
+            //Label the data
+            &:before {
+                margin-right: 10%;
+            }
+
+            &:nth-of-type(3):before {
+                content: "Cena:";
+                position: absolute;
+                left: 2%;
+            }
+
+            &:nth-of-type(4):before {
+                content: "Ilość:";
+                position: absolute;
+                left: 2%;
+            }
+
+            &--title {
+                padding-left: 2%;
+            }
+
+            &--title,
+            &--price,
+            &--quantity,
+            &--delete {
+                text-align: center;
+            }
+
+            &--cover {
+                margin: 0 auto;
+                width: 100%;
+                height: 30rem;
+                padding: 0;
+            }
+        }
+    }
+} */
+
+/* 
+@media only screen and (max-width: 767px) {
+
+    .shopBasket {
+        margin-top: 0;
+        width: 100%;
+    }
+
+
+    .basket-table__data {
+        padding-left: .5rem;
+    }
+
+    .basket-table__data--title {
+        padding-left: 2%;
+        text-align: center;
+    }
+
+    .basket-table__data--price {
+        text-align: center;
+    }
+
+    .basket-table__data--quantity {
+        text-align: center;
+    }
+
+    .basket-table__data--delete {
+        text-align: center;
+    }
+
+    .basket-table__data--cover {
+        margin: 0 auto;
+        width: 100%;
+        height: 30rem;
+    }
+
+
+
+    //Force table to not be like tables anymore
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+
+    // Hide table headers (but not display: none;, for accessibility)
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+        margin-bottom: 5rem;
+    }
+
+    td {
+        //Behave  like a "row"
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+
+
+	//Label the data
+    td:before {
+        margin-right: 10%;
+    }
+
+    //td:nth-of-type(2):before {
+        //content: "Tytuł:";
+        //display: block;
+        //text-align: left;
+    //}
+
+    td:nth-of-type(3):before {
+        content: "Cena:";
+        position: absolute;
+        left: 2%;
+    }
+
+    td:nth-of-type(4):before {
+        content: "Ilość:";
+        position: absolute;
+        left: 2%;
     }
 } */
