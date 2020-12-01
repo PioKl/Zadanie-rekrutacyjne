@@ -96,7 +96,7 @@ const [timeLeft, setTimeLeft] = useState(10);
                 <label className="summary__item" htmlFor="zipCode">Kod pocztowy:
                     <input className="summary__input" id="zipCode" name="zipCode" type="text" inputMode="numeric" value={userZipCode} onChange={(e) => setUserZipCode(e.target.value)} pattern="\d{2}-\d{3}" placeholder="Układ 00-000" onInvalid={handleInputZipCode} onInput={(e) => e.target.setCustomValidity("")} required/>
                 </label>
-                <button className="button summary__order">Zamawiam i płacę</button>
+                <button className="summary__order">Zamawiam i płacę</button>
             </form>
             }
                 {shopBasket.length === 0 &&  postStatus !== 201 && <p className="summary__emptySummary">Nie ma niczego w koszyku, nie można podsumować i zapłacić!</p> }
