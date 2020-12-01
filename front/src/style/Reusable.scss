@@ -1,0 +1,45 @@
+@mixin absoluteCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin iconSize($size) {
+    background-size: $size $size;
+    width: $size;
+    height: $size;
+}
+
+@mixin iconSizeWithActive($size) {
+    background-size: $size $size;
+    width: $size;
+    height: $size;
+
+    &:active {
+        transform: scale(.8);
+    }
+}
+
+@mixin commonLeftRightPadding {
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+@mixin buttonReset {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+@mixin buttonPressed {
+
+    &:hover {
+        background-color: rgb(43, 175, 43);
+    }
+
+    &:active {
+        box-shadow: inset 0 0 1rem rgb(8, 87, 8);
+        background-color: rgb(44, 151, 44);
+    }
+}
