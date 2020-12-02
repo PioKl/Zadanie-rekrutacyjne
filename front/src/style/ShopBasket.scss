@@ -1,40 +1,28 @@
 @import './App.scss';
-/* .table {
-    width: 100%;
-} */
 
 .shopBasket {
-    /*     display: grid;
-    justify-content: center;
-    margin-top: -3rem; */
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
-    margin-top: -3rem;
+    margin-top: -2rem; //zalezne od border-spacing
     width: 70%;
 
-    /*     @media only screen and (max-width: 768px) {
-        margin-top: 0;
-        width: 100%;
-    } */
-
+    /* Responsive Media Queries */
     @media only screen and (max-width: 767px) {
         margin-top: 0;
         width: 100%;
         max-width: 32rem;
     }
 
+    /* Responsive Media Queries */
     @media only screen and (min-width: 768px) and (max-width: 1024px) {
         margin-top: 0;
         width: 100%;
     }
 
 
-
     &__nextButton-container {
-        //background-color: orange;
         background-color: rgb(255, 102, 0);
         width: 50%;
         height: 5rem;
@@ -43,6 +31,12 @@
         align-items: center;
         margin-left: 50%;
         @include buttonPressed();
+
+        /* Responsive Media Queries */
+        @media only screen and (min-width: 1536px) {
+            height: calc(50px + (100 - 50) * ((100vw - 1536px) / (2560 - 1536)));
+        }
+
     }
 
     &__nextButton {
@@ -50,6 +44,11 @@
         color: white;
         font-size: 3rem;
         font-family: inherit;
+
+        /* Responsive Media Queries */
+        @media only screen and (min-width: 1536px) {
+            font-size: calc(30px + (60 - 30) * ((100vw - 1536px) / (2560 - 1536)));
+        }
     }
 
     &__emptyBasket {
@@ -72,18 +71,14 @@
 
 .basket-table {
     background-color: inherit;
-    /*     border-collapse: separate;
-    border-spacing: 0 35px; */
-    /*     border-collapse: separate;
-    border-spacing: 0 15px; */
     border-collapse: separate;
     border-spacing: 0 20px;
-    //width: 100%;
     width: 100%;
 
 
     &__row {
 
+        /* Responsive Media Queries */
         @media only screen and (max-width: 767px) {
             border: 1px solid #ccc;
             margin-bottom: 5rem;
@@ -95,8 +90,13 @@
             font-size: 1.6rem;
             background-color: #fff;
             box-shadow: $shadow;
-            //font-size: .5rem;
 
+            /* Responsive Media Queries */
+            @media only screen and (min-width: 1536px) {
+                font-size: calc(16px + (30 - 16) * ((100vw - 1536px) / (2560 - 1536)));
+            }
+
+            /* Responsive Media Queries */
             @media only screen and (max-width: 767px) {
                 position: absolute;
                 top: -9999px;
@@ -105,21 +105,26 @@
         }
 
         &--body {
-            //background-color: orange;
-            //border: 2px solid gray;
             border-left: 0;
             border-right: 0;
             font-size: 1.6rem;
             background-color: #fff;
             box-shadow: $shadow;
 
-            //font-size: .5rem;
+            /* Responsive Media Queries */
+            @media only screen and (min-width: 1536px) {
+                font-size: calc(16px + (30 - 16) * ((100vw - 1536px) / (2560 - 1536)));
+            }
         }
     }
 
     &__item-header {
         padding: 2rem;
-        //background-color: red;
+
+        /* Responsive Media Queries */
+        @media only screen and (min-width: 1536px) {
+            padding: calc(20px + (50 - 20) * ((100vw - 1536px) / (2560 - 1536)));
+        }
 
         &--title {
             width: 30rem;
@@ -149,13 +154,11 @@
             text-align: center;
         }
 
-        //border-top: 2px solid gray;
+        /* Responsive Media Queries */
         @media only screen and (max-width: 767px) {
             border: none;
             border-bottom: 1px solid #eee;
             position: relative;
-            //padding-left: 50%;
-            //padding-left: .5rem;
 
             &:before {
                 margin-right: 10%;
@@ -177,6 +180,7 @@
         &--title {
             padding: 1rem 3rem;
 
+            /* Responsive Media Queries */
             @media only screen and (max-width: 767px) {
                 padding-left: 2%;
             }
@@ -186,11 +190,17 @@
             width: 15rem;
             height: 20rem;
 
+            /* Responsive Media Queries */
             @media only screen and (max-width: 767px) {
                 margin: 0 auto;
                 width: 100%;
                 height: 30rem;
                 padding: 0;
+            }
+
+            /* Responsive Media Queries */
+            @media only screen and (min-width: 1536px) {
+                height: calc(200px + (400 - 200) * ((100vw - 1536px) / (2560 - 1536)));
             }
         }
 
@@ -204,12 +214,6 @@
                 text-align: center;
             }
         }
-
-        //border: 1px solid red;
-        /*         &--title,
-        &--quantity {
-            font-size: 1.6rem;
-        } */
 
     }
 
@@ -225,152 +229,13 @@
         background-image: url('../svg/cartDelete.svg');
         @include iconSizeWithActive(4rem);
         background-repeat: no-repeat;
-    }
-}
 
-
-
-/* .spr1 {
-    width: 15rem;
-} */
-
-/* .spr2 {
-    width: 25%;
-} */
-
-/* .titlee {
-    text-align: center;
-}
-
-.sprImg {
-    width: 15rem;
-    height: 20rem;
-
-    //width: 5rem;
-    //height: 10rem;
-}
- */
-/* .sprImg2 {
-    display: block;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 0 1rem .1rem rgba(44, 58, 58, .2);
-} */
-
-/* table td {
-    padding: 12px 12px 12px 12px;
-    border: 10px solid white;
-    border-right: 0;
-    border-left: 0;
-}
-
-table th {
-    background-color: red;
-    padding: 12px 12px 12px 12px;
-}
-
-table {
-    border-collapse: separate;
-} */
-
-
-
-/* .shopBasket {
-    display: grid;
-    row-gap: 5rem;
-    //padding: 10rem 10vw 10rem 10vw;
-
-    &__emptyBasket {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 5rem;
-    }
-
-    &__book {
-        display: flex;
-        background-color: white;
-        box-shadow: 0rem 0rem 2rem .9rem rgba(black, .2);
-        height: auto;
-        margin: 0 auto;
-        margin-bottom: 5rem;
-        border-radius: 1rem;
-        padding: 1rem;
-        gap: 3rem;
-    }
-
-
-    &__section-name {
-        padding: 1rem;
-        text-align: center;
-        border-bottom: 1px solid black;
-        background-color: white;
-    }
-
-    &__container {
-        width: 150px;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        background-color: rgba(245, 243, 239, 0.438);
-    }
-
-    &__section-information {
-        //text-align: center;
-        //flex-wrap: wrap;
-        text-align: center;
-        font-size: 2rem;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-
-        &--quantity,
-        &--price {
-            left: 50%;
-            transform: translateX(-50%);
+        /* Responsive Media Queries */
+        @media only screen and (min-width: 1536px) {
+            @include iconSizeWithActive(calc(40px + (60 - 40) * ((100vw - 1536px) / (2560 - 1536))));
         }
     }
-
-    &__cover-container {
-        height: inherit;
-    }
-
-    &__cover-img {
-        //width: 40%;
-        //padding: 1rem;
-        //width: 250px;
-        height: 20rem;
-        width: 15rem;
-        padding-top: .5rem;
-    }
-
-    &__delete-container {
-        display: flex;
-        align-self: flex-end;
-    }
-
-    &__deleteButton {
-        background-image: url('../svg/cartDelete.svg');
-        background-size: 4rem 4rem;
-        width: 4rem;
-        height: 4rem;
-        background-repeat: no-repeat;
-
-        // &:active {
-        //    background-size: 3rem 3rem;
-        //    width: 3rem;
-        //    height: 3rem;
-
-    }
-
-    &__orderInformation {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        //width: 60%;
-    }
-} */
+}
 
 @media only screen and (max-width: 767px) {
 
@@ -459,100 +324,5 @@ table {
                 padding: 0;
             }
         }
-    }
-} */
-
-/* 
-@media only screen and (max-width: 767px) {
-
-    .shopBasket {
-        margin-top: 0;
-        width: 100%;
-    }
-
-
-    .basket-table__data {
-        padding-left: .5rem;
-    }
-
-    .basket-table__data--title {
-        padding-left: 2%;
-        text-align: center;
-    }
-
-    .basket-table__data--price {
-        text-align: center;
-    }
-
-    .basket-table__data--quantity {
-        text-align: center;
-    }
-
-    .basket-table__data--delete {
-        text-align: center;
-    }
-
-    .basket-table__data--cover {
-        margin: 0 auto;
-        width: 100%;
-        height: 30rem;
-    }
-
-
-
-    //Force table to not be like tables anymore
-    table,
-    thead,
-    tbody,
-    th,
-    td,
-    tr {
-        display: block;
-    }
-
-
-    // Hide table headers (but not display: none;, for accessibility)
-    thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-    }
-
-    tr {
-        border: 1px solid #ccc;
-        margin-bottom: 5rem;
-    }
-
-    td {
-        //Behave  like a "row"
-        border: none;
-        border-bottom: 1px solid #eee;
-        position: relative;
-        padding-left: 50%;
-    }
-
-
-
-	//Label the data
-    td:before {
-        margin-right: 10%;
-    }
-
-    //td:nth-of-type(2):before {
-        //content: "Tytuł:";
-        //display: block;
-        //text-align: left;
-    //}
-
-    td:nth-of-type(3):before {
-        content: "Cena:";
-        position: absolute;
-        left: 2%;
-    }
-
-    td:nth-of-type(4):before {
-        content: "Ilość:";
-        position: absolute;
-        left: 2%;
     }
 } */
