@@ -49,9 +49,7 @@ function App({ shopBasket }) {
             </div>
           </Route>
           <Route path="/koszyk" component={ShopBasket}></Route>
-          {/* {shopBasket.length > 0 && <Route path="/podsumowanie" component={Summary}></Route>} */} {/* rozwiazanie 2 */}
           <Route path="/podsumowanie" component={Summary}></Route>
-          {/* <Route render={() => <main className="main main--error"><p>Wrong page</p></main>}/> */}
           <Route>
             <div className="wrong-page">
               <h1 className="wrong-page__title">Wrong page</h1>
