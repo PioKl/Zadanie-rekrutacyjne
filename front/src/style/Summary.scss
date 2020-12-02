@@ -3,7 +3,6 @@
 .summary {
     display: flex;
     justify-content: center;
-    //align-items: center;
 
     &__form {
         display: flex;
@@ -11,11 +10,31 @@
         width: 60rem;
         box-shadow: $shadow;
         padding: 2rem;
+
+        /*         @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+            @include absoluteCenter();
+        } */
+
+        /* Responsive Media Queries */
+        @media only screen and (min-width: 1536px) {
+            width: calc(600px + (1000 - 600) * ((100vw - 1536px) / (2560 - 1536)));
+        }
     }
 
     &__item {
-        padding: 1rem 0;
+        padding: .5rem 0;
         font-size: 1.6rem;
+
+        /* Responsive Media Queries */
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+            padding: calc(10px + (20 - 10) * ((100vw - 768px) / (1024 - 768))) 0;
+            font-size: calc(16px + (20 - 16) * ((100vw - 768px) / (1024 - 768)));
+        }
+
+        @media only screen and (min-width: 1536px) {
+            padding: calc(5px + (30 - 5) * ((100vw - 1536px) / (2560 - 1536))) 0;
+            font-size: calc(16px + (40 - 16) * ((100vw - 1536px) / (2560 - 1536)));
+        }
     }
 
     &__input {
@@ -40,6 +59,17 @@
         border-radius: .5rem;
         font-family: inherit;
         @include buttonPressed();
+
+        /* Responsive Media Queries */
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+            padding: calc(10px + (20 - 10) * ((100vw - 768px) / (1024 - 768))) 0;
+            font-size: calc(16px + (20 - 16) * ((100vw - 768px) / (1024 - 768)));
+        }
+
+        @media only screen and (min-width: 1536px) {
+            padding: calc(13px + (30 - 13) * ((100vw - 1536px) / (2560 - 1536))) 0;
+            font-size: calc(16px + (40 - 16) * ((100vw - 1536px) / (2560 - 1536)));
+        }
     }
 
     &__emptySummary,
