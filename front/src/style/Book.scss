@@ -13,36 +13,51 @@ input[type=number]::-webkit-outer-spin-button {
 
 .book-card {
     padding: 2rem;
-    //border: 3px solid orange;
     border-radius: 1rem;
     box-shadow: $shadow;
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     &__img {
         width: 100%;
         height: 30rem;
         box-shadow: $shadow;
+
+        /* Responsive Media Queries */
+        @media only screen and (min-width: 1537px) {
+            height: 40rem;
+        }
     }
 
     &__title {
         padding: 1rem 0;
-        //text-align: center;
+
+        /* Responsive Media Queries */
+        @media only screen and (min-width: 1536px) {
+            font-size: calc(15px + (20 - 15) * ((100vw - 1536px) / (2560 - 1536)));
+        }
     }
 
     &__author {
-        //text-align: center;
         font-size: 1rem;
         padding: .5rem 0;
-    }
 
-    &__price {
-        padding: .5rem 0;
-        font-size: 1.6rem;
+        /* Responsive Media Queries */
+        @media only screen and (min-width: 1536px) {
+            font-size: calc(10px + (16 - 10) * ((100vw - 1536px) / (2560 - 1536)));
+        }
     }
 
     &__pages {
         padding: .5rem 0 1rem 0;
         font-size: 1.3rem;
+
+        /* Responsive Media Queries */
+        @media only screen and (min-width: 1536px) {
+            font-size: calc(13px + (18 - 13) * ((100vw - 1536px) / (2560 - 1536)));
+        }
     }
 
     &__order {
@@ -67,6 +82,11 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 1.4rem;
         font-family: inherit;
 
+        /* Responsive Media Queries */
+        @media only screen and (min-width: 1537px) {
+            font-size: 2rem;
+        }
+
         &:hover {
             background-color: rgb(202, 95, 95);
             color: white;
@@ -76,15 +96,6 @@ input[type=number]::-webkit-outer-spin-button {
             background-color: rgb(235, 82, 82);
         }
 
-        /*         &:hover {
-            background-color: rgb(253, 104, 104);
-            color: white;
-        }
-
-        &:active {
-            background-color: rgb(235, 82, 82);
-        } */
-
     }
 
     &__quantityInput {
@@ -93,10 +104,13 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 1.2rem;
         text-align: center;
         font-weight: 900;
-        //background: white;
-        //border: 1px solid gray;
         border: none;
         font-family: inherit;
+
+        /* Responsive Media Queries */
+        @media only screen and (min-width: 1537px) {
+            font-size: 1.8rem;
+        }
     }
 
     &__addToBasketButton {
@@ -106,264 +120,33 @@ input[type=number]::-webkit-outer-spin-button {
         align-items: center;
         flex: 1 1 auto;
         cursor: pointer;
-        //background-color: rgb(44, 202, 44);
         background-color: rgb(255, 102, 0);
         border: none;
-        //border-left: 1px solid white;
         color: white;
-        //height: 100%;
         font-family: inherit;
-
         font-size: calc(12px + (14 - 12) * ((100vw - 300px) / (2560 - 300)));
-        //font-size: 12px;
-
         @include buttonPressed();
 
-        /*         &:hover {
-            background-color: rgb(43, 175, 43);
+        /* Responsive Media Queries */
+        @media only screen and (min-width: 1920px) {
+            font-size: 1.8rem;
         }
 
-        &:active {
-            box-shadow: inset 0 0 1rem rgb(8, 87, 8);
-            background-color: rgb(44, 151, 44);
-        } */
 
         &::after {
             content: '';
             background-image: url('../svg/cartAdd.svg');
-            /*             background-size: 2.5rem 2.5rem;
-            width: 2.5rem;
-            height: 2.5rem; */
             @include iconSize(2.5rem);
             background-repeat: no-repeat;
             margin-left: 1rem;
 
-            background-size: calc(20px + (25 - 20) * ((100vw - 300px) / (2560 - 300)));
-            ;
-            width: calc(20px + (25 - 20) * ((100vw - 300px) / (2560 - 300)));
-            height: calc(20px + (25 - 20) * ((100vw - 300px) / (2560 - 300)));
+            /* Responsive Media Queries */
+            @media only screen and (max-width: 1536px) {
+                background-size: calc(20px + (25 - 20) * ((100vw - 300px) / (1536 - 300)));
+                width: calc(20px + (25 - 20) * ((100vw - 300px) / (1536 - 300)));
+                height: calc(20px + (25 - 20) * ((100vw - 300px) / (1536 - 300)));
+            }
+
         }
     }
-
-    /* 
-    &__order {
-        padding: 1rem;
-        background-color: orange;
-        display: flex;
-        justify-content: space-between;
-        //height: 4rem;
-    }
-
-    &__quantityInput {
-        width: 30%;
-    }
-
-    &__addToBasketButton {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        background-color: rgb(44, 202, 44);
-        border: none;
-        //border-left: 1px solid white;
-        color: white;
-        margin: -1rem;
-        //height: 100%;
-
-        &:hover {
-            background-color: rgb(43, 175, 43);
-        }
-
-        &:active {
-            box-shadow: inset 0 0 1rem rgb(8, 87, 8);
-            background-color: rgb(44, 151, 44);
-        }
-
-        &::after {
-            content: '';
-            background-image: url('../svg/cart.svg');
-            background-size: 2.5rem 2.5rem;
-            width: 2.5rem;
-            height: 2.5rem;
-            background-repeat: no-repeat;
-            margin: 0 1rem;
-            fill: white;
-        }
-    }
-
-    &__addToBasketButtonTitle {
-        margin-left: 1rem;
-    } */
 }
-
-/* 
-input[type="number"] {
-    -webkit-appearance: textfield;
-    -moz-appearance: textfield;
-    appearance: textfield;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-}
-
-.number-input {
-    border: 2px solid #ddd;
-    display: inline-flex;
-}
-
-.number-input,
-.number-input * {
-    box-sizing: border-box;
-}
-
-.number-input button {
-    outline: none;
-    -webkit-appearance: none;
-    background-color: transparent;
-    border: none;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    cursor: pointer;
-    margin: 0;
-    position: relative;
-}
-
-.number-input button:before,
-.number-input button:after {
-    display: inline-block;
-    position: absolute;
-    content: '';
-    width: 1rem;
-    height: 2px;
-    background-color: #212121;
-    transform: translate(-50%, -50%);
-}
-
-.number-input button.plus:after {
-    transform: translate(-50%, -50%) rotate(90deg);
-}
-
-.number-input input[type=number] {
-    font-family: sans-serif;
-    max-width: 5rem;
-    padding: .5rem;
-    border: solid #ddd;
-    border-width: 0 2px;
-    font-size: 2rem;
-    height: 3rem;
-    font-weight: bold;
-    text-align: center;
-} */
-
-
-/* 
-
-input[type="number"] {
-    -webkit-appearance: textfield;
-    -moz-appearance: textfield;
-    appearance: textfield;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-}
-
-.quantity {
-    display: flex;
-    width: 40%;
-    //border: 3px solid orange;
-}
-
-
-
-// it will support chrome and firefox
-.quantity input[type=number]::-webkit-inner-spin-button,
-.quantity input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-}
-
-.quantity input,
-.quantity button {
-    width: 40%;
-    padding: 1rem;
-    font-size: 1.2rem;
-    text-align: center;
-    font-weight: 900;
-    //background: white;
-    //border: 1px solid gray;
-    border: none;
-}
-
-.btn {
-    background-color: rgb(218, 211, 211);
-    cursor: pointer;
-    font-size: 1.4rem !important;
-
-    &:hover {
-        background-color: rgb(253, 104, 104);
-        color: white;
-    }
-
-    &:active {
-        background-color: rgb(235, 82, 82);
-    }
-}
-
-.quantity input {
-    border-left: none;
-    border-right: none;
-}
-
-.quantityy {
-    width: 40%;
-}
-
-
-
-.book-card__order {
-    display: flex;
-    width: 100%;
-    box-shadow: 0 0 1rem .1rem rgba(44, 58, 58, .2);
-    //border: 3px solid white;
-}
-
-
-.book-card__addToBasketButton {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1 1 auto;
-    cursor: pointer;
-    //background-color: rgb(44, 202, 44);
-    background-color: orange;
-    border: none;
-    //border-left: 1px solid white;
-    color: white;
-    //height: 100%;
-
-    &:hover {
-        background-color: rgb(43, 175, 43);
-    }
-
-    &:active {
-        box-shadow: inset 0 0 1rem rgb(8, 87, 8);
-        background-color: rgb(44, 151, 44);
-    }
-
-    &::after {
-        content: '';
-        background-image: url('../svg/cart.svg');
-        background-size: 2.5rem 2.5rem;
-        width: 2.5rem;
-        height: 2.5rem;
-        background-repeat: no-repeat;
-        margin-left: 1rem;
-        fill: white;
-    }
-} */
