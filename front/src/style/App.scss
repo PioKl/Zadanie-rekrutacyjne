@@ -1,13 +1,25 @@
 @import "./Base.scss";
 @import './Reusable.scss';
 
+$heightHeader: 60px;
+$heightCalc: calc(#{$heightHeader} + (100 - #{$heightHeader/1px}) * ((100vw - 1536px) / (2560 - 1536)));
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    background-color: white;
     box-shadow: $shadow;
-    height: 6rem;
+    height: $heightHeader;
     padding: 1rem 5rem;
+
+    /* Responsive Media Queries */
+    @media only screen and (min-width: 1536px) {
+        height: $heightCalc;
+    }
 
     padding: 1rem calc(14px + (80 - 14) * ((100vw - 300px) / (2560 - 300)));
 
@@ -19,12 +31,7 @@
         background-clip: text;
         -webkit-text-fill-color: transparent;
         font-family: inherit;
-
         font-size: calc(14px + (32 - 14) * ((100vw - 300px) / (2560 - 300)));
-
-        //#f8b91e
-        //#e77d27
-        //#d60024
     }
 
     &__shopBasketButton {
@@ -40,6 +47,11 @@
             background-repeat: no-repeat;
             margin: 0 1rem;
             filter: brightness(0%);
+
+            /* Responsive Media Queries */
+            @media only screen and (min-width: 1536px) {
+                @include iconSize(calc(25px + (40 - 25) * ((100vw - 1536px) / (2560 - 1536))));
+            }
         }
 
     }
@@ -53,26 +65,48 @@
         height: 3.3rem;
         font-size: 1.6rem;
         border-radius: 50%;
+
+        /* Responsive Media Queries */
+        @media only screen and (min-width: 1536px) {
+            width: calc(33px + (50 - 33) * ((100vw - 1536px) / (2560 - 1536)));
+            height: calc(33px + (50 - 33) * ((100vw - 1536px) / (2560 - 1536)));
+            font-size: calc(16px + (23 - 16) * ((100vw - 1536px) / (2560 - 1536)));
+        }
     }
 }
 
 .main {
     padding: 5rem;
     padding: calc(20px + (74.9 - 20) * ((100vw - 300px) / (2560 - 300)));
+
+    /* Responsive Media Queries */
+    @media only screen and (max-width: 768px) {
+        padding-top: 8rem;
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        padding-top: 12rem;
+    }
+
+    @media only screen and (min-width: 1536px) {
+        padding-top: calc(#{$heightCalc} + 3%);
+    }
 }
 
 .books-container {
     display: grid;
-    //grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     grid-template-columns: repeat(auto-fit, minmax(28rem, 31.7rem));
     gap: 5rem;
     justify-content: center;
 
-    /*     @media (min-width: 1000px) {
-        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    } */
+    /* Responsive Media Queries */
+    @media only screen and (min-width: 1536px) {
+        grid-template-columns: repeat(auto-fit, minmax(31.7rem, 1fr));
+    }
 
-    /* grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); */
+    @media only screen and (min-width: 1920px) {
+        grid-template-columns: repeat(auto-fit, minmax(31.7rem, 40rem));
+    }
 
 }
 
