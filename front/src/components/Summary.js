@@ -38,9 +38,6 @@ const Summary = ({ shopBasket, resetBook }) => {
         setUserZipCode("")
         orderedBooks = [];
         resetBook();
-/*         setTimeout(() => { //rozwiazanie 2
-            resetBook();
-        },10333)  */
     }
 console.log(checkStatus);
 console.log(shopBasket);
@@ -49,7 +46,7 @@ const [timeLeft, setTimeLeft] = useState(10);
 
 
   useEffect(() => {
-    if (!timeLeft) return; //gdy === true to zakoncz
+    if (!timeLeft) return; //gdy === true to zakonczy
 
      const interval = setInterval(() => {
         postStatus === 201 && setTimeLeft(timeLeft - 1)
@@ -80,7 +77,6 @@ const [timeLeft, setTimeLeft] = useState(10);
   console.log(timeLeft)
     return ( 
         <div className="summary">
-            {/* {postStatus !== 201 &&  */}  {/* rozwiazanie 2 */}
             {shopBasket.length > 0 && 
             <form className="summary__form" onSubmit={handleSubmit}>
                 <label className="summary__item" htmlFor="name">Imię:
@@ -101,10 +97,6 @@ const [timeLeft, setTimeLeft] = useState(10);
             }
                 {shopBasket.length === 0 &&  postStatus !== 201 && <p className="summary__emptySummary">Nie ma niczego w koszyku, nie można podsumować i zapłacić!</p> }
                 {postStatus === 201 && <p className="summary__completed">Zakupiono! Za {timeLeft} sekund zostaniesz przekierowany na strone główną</p> }
-                {/* {shopBasket.length === 0 && <Redirect to="/"/>} */}
-                {/* {timeLeft === 0 && resetBook()} */}
-                {/* {timeLeft === 0 && shopBasket.length === 0 && <Redirect to="/"/>} */}
-                {/* {timeLeft} */}
                 {timeLeft === 0 && <Redirect exact to="/"/>}
         </div>
      );
