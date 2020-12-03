@@ -40,7 +40,7 @@ const Summary = ({ shopBasket, resetBook }) => {
         resetBook();
     }
 console.log(checkStatus);
-console.log(shopBasket);
+//console.log(shopBasket);
 
 const [timeLeft, setTimeLeft] = useState(10);
 
@@ -58,8 +58,8 @@ const [timeLeft, setTimeLeft] = useState(10);
     //jeśli następuje update, którejś z wartośći, wtedy wywołaj
   }, [timeLeft, shopBasket, postStatus]);
 
-  console.log(postStatus)
-  console.log(shopBasket)
+  //console.log(postStatus)
+  //console.log(shopBasket)
 
   const handleInputName = (e) => {
       e.target.setCustomValidity("Wpisz swoje imię!");  
@@ -73,8 +73,8 @@ const [timeLeft, setTimeLeft] = useState(10);
   const handleInputZipCode = (e) => {
     e.target.setCustomValidity("Wpisz swój adres pocztowy (układ 00-000)!");
   }
-  console.log(postStatus)
-  console.log(timeLeft)
+  //console.log(postStatus)
+  //console.log(timeLeft)
     return ( 
         <div className="summary">
             {shopBasket.length > 0 && 
