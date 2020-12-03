@@ -4,6 +4,9 @@
 $heightHeader: 60px;
 $heightCalc: calc(#{$heightHeader} + (100 - #{$heightHeader/1px}) * ((100vw - 1536px) / (2560 - 1536)));
 
+/* ========================
+           HEADER
+=========================== */
 .header {
     display: flex;
     justify-content: space-between;
@@ -75,6 +78,9 @@ $heightCalc: calc(#{$heightHeader} + (100 - #{$heightHeader/1px}) * ((100vw - 15
     }
 }
 
+/* ========================
+           MAIN
+=========================== */
 .main {
     padding: 5rem;
     padding: calc(20px + (74.9 - 20) * ((100vw - 300px) / (2560 - 300)));
@@ -93,6 +99,9 @@ $heightCalc: calc(#{$heightHeader} + (100 - #{$heightHeader/1px}) * ((100vw - 15
     }
 }
 
+/* ========================
+        Books Container
+=========================== */
 .books-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(28rem, 31.7rem));
@@ -110,6 +119,9 @@ $heightCalc: calc(#{$heightHeader} + (100 - #{$heightHeader/1px}) * ((100vw - 15
 
 }
 
+/* ========================
+        WRONG PAGE
+=========================== */
 .wrong-page {
 
     &__title {
