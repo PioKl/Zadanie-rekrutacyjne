@@ -8,7 +8,7 @@ const ShopBasket = ({ shopBasket, deleteBook }) => {
     const handleDelete = (i) => {
         deleteBook(shopBasket[i].id)
       }
-    console.log(shopBasket)
+    //console.log(shopBasket)
     return ( 
         <div className="shopBasket">
           {shopBasket.length > 0 ?
