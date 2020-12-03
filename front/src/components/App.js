@@ -25,7 +25,7 @@ function App({ shopBasket }) {
 
   }, [])
 
-  console.log(shopBasket)
+  //console.log(shopBasket)
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
