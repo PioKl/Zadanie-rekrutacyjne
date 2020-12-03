@@ -22,10 +22,10 @@ const Book = ({ book, addBook }) => {
             setQuantity(quantity + 1)
         }
     }
-    console.log(quantity)
+    //console.log(quantity)
     return (
         <div className="book-card">
-            <img title={`Okładka: ${title}`} className="book-card__img" src={cover_url} alt="" />
+            <img title={`Okładka: ${title}`} className="book-card__img" src={cover_url} alt="Okładka" />
             <h2 title={`Tytuł: ${title}`} className="book-card__title">{title} </h2>
             <h3 title={`Autor: ${author}`} className="book-card__author">{author.charAt(0).toUpperCase() + author.slice(1)} </h3>
             <p title={`Liczba stron: ${pages}`} className="book-card__pages">Liczba stron: {pages}</p>
