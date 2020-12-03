@@ -29,6 +29,8 @@
 
 @mixin buttonPressed {
 
+    transition: background-color .5s ease-in-out;
+
     &:hover {
         background-color: rgb(43, 175, 43);
     }
