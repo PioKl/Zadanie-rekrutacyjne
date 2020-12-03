@@ -11,10 +11,6 @@
         box-shadow: $shadow;
         padding: 2rem;
 
-        /*         @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-            @include absoluteCenter();
-        } */
-
         /* Responsive Media Queries */
         @media only screen and (min-width: 1536px) {
             width: calc(600px + (1000 - 600) * ((100vw - 1536px) / (2560 - 1536)));
