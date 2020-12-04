@@ -40,7 +40,6 @@ const Summary = ({ shopBasket, resetBook }) => {
         resetBook();
     }
 console.log(checkStatus);
-//console.log(shopBasket);
 
 const [timeLeft, setTimeLeft] = useState(10);
 
@@ -58,9 +57,6 @@ const [timeLeft, setTimeLeft] = useState(10);
     //jeśli następuje update, którejś z wartośći, wtedy wywołaj
   }, [timeLeft, shopBasket, postStatus]);
 
-  //console.log(postStatus)
-  //console.log(shopBasket)
-
   const handleInputName = (e) => {
       e.target.setCustomValidity("Wpisz swoje imię!");  
   }
@@ -73,8 +69,6 @@ const [timeLeft, setTimeLeft] = useState(10);
   const handleInputZipCode = (e) => {
     e.target.setCustomValidity("Wpisz swój adres pocztowy (układ 00-000)!");
   }
-  //console.log(postStatus)
-  //console.log(timeLeft)
     return ( 
         <div className="summary">
             {shopBasket.length > 0 && 
@@ -96,7 +90,7 @@ const [timeLeft, setTimeLeft] = useState(10);
             </form>
             }
                 {shopBasket.length === 0 &&  postStatus !== 201 && <p className="summary__emptySummary">Nie ma niczego w koszyku, nie można podsumować i zapłacić!</p> }
-                {postStatus === 201 && <p className="summary__completed">Zakupiono! Za {timeLeft} sekund zostaniesz przekierowany na strone główną</p> }
+                {postStatus === 201 && <p className="summary__completed">Zakupiono! Za {timeLeft} sekund zostaniesz przekierowany na stronę główną.</p> }
                 {timeLeft === 0 && <Redirect exact to="/"/>}
         </div>
      );
