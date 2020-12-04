@@ -25,7 +25,6 @@ function App({ shopBasket }) {
 
   }, [])
 
-  //console.log(shopBasket)
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
@@ -68,5 +67,3 @@ const mapStateToProps = state =>  ({
 
 
 export default connect(mapStateToProps)(App);
-
-//export default App;
