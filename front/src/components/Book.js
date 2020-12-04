@@ -22,7 +22,7 @@ const Book = ({ book, addBook }) => {
             setQuantity(quantity + 1)
         }
     }
-    //console.log(quantity)
+
     return (
         <div className="book-card">
             <img title={`Okładka: ${title}`} className="book-card__img" src={cover_url} alt="Okładka" />
